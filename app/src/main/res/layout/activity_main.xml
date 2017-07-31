@@ -43,11 +43,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/btnAddItem"
-        android:layout_alignEnd="@+id/btnAddItem"
-        android:layout_alignLeft="@+id/etNewItem"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/btnAddItem"
-        android:layout_alignStart="@+id/etNewItem"
-        android:layout_marginTop="25dp" />
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:divider="#ececec"
+        android:dividerHeight="2dp" />
 
 </RelativeLayout>

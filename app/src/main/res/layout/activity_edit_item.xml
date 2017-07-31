@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tessav.simpletodo.EditItemActivity">
+
+    <EditText
+        android:id="@+id/editItem"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Task"
+        android:textAppearance="@android:style/TextAppearance"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editItem"
+        android:layout_alignStart="@+id/editItem" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffc107"
+        android:text="Save"
+        android:onClick="onEditItem"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="173dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/editItem"
+        android:layout_alignLeft="@+id/editItem"
+        android:layout_alignStart="@+id/editItem" />
+</RelativeLayout>

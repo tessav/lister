@@ -16,6 +16,6 @@ public class Task extends BaseModel {
     @Column
     String task_name;
 
-    @Column(defaultValue = "2")
+    @Column(defaultValue = "1")
     int priority;
 }

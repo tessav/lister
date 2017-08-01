@@ -1,6 +1,8 @@
 package com.example.tessav.simpletodo;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +27,17 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         }
 
         TextView taskName = (TextView) convertView.findViewById(R.id.taskName);
-        ImageButton tvHome = (ImageButton) convertView.findViewById(R.id.tvHome);
+        ImageButton taskPriority = (ImageButton) convertView.findViewById(R.id.taskPriority);
 
         taskName.setText(task.task_name);
+
+        if (task.priority == 0) {
+            taskPriority.setColorFilter(Color.rgb(255,68,68));
+        } else if (task.priority == 1) {
+            taskPriority.setColorFilter(ContextCompat.getColor(getContext(), R.color.colorAccent));
+        } else {
+            taskPriority.setColorFilter(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        }
 
         return convertView;
     }

@@ -71,9 +71,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == 20) {
-            String task = data.getExtras().getString("task");
+            String task = data.getExtras().getString("task_name");
+            int priority = data.getIntExtra("priority", 2);
             int pos = data.getExtras().getInt("pos", 0);
             editTaskName(pos, task);
+            editTaskPriority(pos, priority);
             //Toast.makeText(this, "Updated task: " + task, Toast.LENGTH_SHORT).show();
         }
     }
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
     private void addTask(String item_text) {
         Task newTask = new Task();
         newTask.task_name = item_text;
+        newTask.priority = 1;
         newTask.save();
         items.add(newTask);
         itemsAdapter.notifyDataSetChanged();

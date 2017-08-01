@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
                                                    int pos, long id) {
                         Intent openEdit = new Intent(MainActivity.this, EditItemActivity.class);
                         openEdit.putExtra("pos", pos);
-                        openEdit.putExtra("task", items.get(pos).task_name);
+                        openEdit.putExtra("task_name", items.get(pos).task_name);
+                        openEdit.putExtra("priority", items.get(pos).priority);
                         startActivityForResult(openEdit, REQUEST_CODE);
                     }
                 }
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == 20) {
             String task = data.getExtras().getString("task");
             int pos = data.getExtras().getInt("pos", 0);
-            editTask(pos, task);
+            editTaskName(pos, task);
             //Toast.makeText(this, "Updated task: " + task, Toast.LENGTH_SHORT).show();
         }
     }
@@ -97,9 +98,16 @@ public class MainActivity extends AppCompatActivity {
         itemsAdapter.notifyDataSetChanged();
     }
 
-    private void editTask(int pos, String task_name) {
+    private void editTaskName(int pos, String task_name) {
         Task task = items.get(pos);
         task.task_name = task_name;
+        task.save();
+        itemsAdapter.notifyDataSetChanged();
+    }
+
+    private void editTaskPriority(int pos, int priority) {
+        Task task = items.get(pos);
+        task.priority = priority;
         task.save();
         itemsAdapter.notifyDataSetChanged();
     }

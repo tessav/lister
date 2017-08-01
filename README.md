@@ -1,6 +1,6 @@
 # Pre-work - *Todo Traffic*
 
-**Lister** is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
+**Todo Traffic** is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
 
 Submitted by: **Tessa**
 
@@ -25,8 +25,8 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-<img src='http://i.imgur.com/mXcDOaK.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Here's a walkthrough of implemented user stories:<br /><br />
+<img src='http://i.imgur.com/mXcDOaK.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /><br /><br />
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 

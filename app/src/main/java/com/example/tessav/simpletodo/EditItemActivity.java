@@ -26,9 +26,8 @@ public class EditItemActivity extends AppCompatActivity {
         Intent data = new Intent();
         data.putExtra("task", itemText);
         data.putExtra("pos", pos);
-        data.putExtra("code", 200); // ints work too
-        // Activity finished ok, return the data
-        setResult(RESULT_OK, data); // set result code and bundle data for response
-        finish(); // closes the activity, pass data to parent
+        data.putExtra("code", 200);
+        setResult(RESULT_OK, data);
+        finish();
     }
 }

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -16,9 +15,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Task> items;
-    ArrayAdapter<String> itemsAdapter;
+    TaskAdapter itemsAdapter;
     ListView lvItems;
-    ArrayList<String> textItems;
     private final int REQUEST_CODE = 20;
 
     @Override
@@ -27,12 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<Task>(getTasks());
-        textItems = new ArrayList<String>();
-        for (Task it : items) {
-            textItems.add(it.task_name);
-        }
-        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textItems);
-        lvItems.setAdapter(itemsAdapter);
+        itemsAdapter = new TaskAdapter(this, items);
+        ListView listView = (ListView) findViewById(R.id.lvItems);
+        listView.setAdapter(itemsAdapter);
         setupListViewListener();
     }
 
@@ -45,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                                                    int pos, long id) {
                         Intent openEdit = new Intent(MainActivity.this, EditItemActivity.class);
                         openEdit.putExtra("pos", pos);
-                        openEdit.putExtra("task", textItems.get(pos));
+                        openEdit.putExtra("task", items.get(pos).task_name);
                         startActivityForResult(openEdit, REQUEST_CODE);
                     }
                 }
@@ -92,14 +87,12 @@ public class MainActivity extends AppCompatActivity {
         newTask.task_name = item_text;
         newTask.save();
         items.add(newTask);
-        textItems.add(newTask.task_name);
         itemsAdapter.notifyDataSetChanged();
     }
 
     private void deleteTask(int pos) {
         Task itemToDelete = items.get(pos);
         items.remove(pos);
-        textItems.remove(pos);
         itemToDelete.delete();
         itemsAdapter.notifyDataSetChanged();
     }
@@ -108,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         Task task = items.get(pos);
         task.task_name = task_name;
         task.save();
-        textItems.set(pos, task_name);
         itemsAdapter.notifyDataSetChanged();
     }
 

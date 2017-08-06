@@ -21,7 +21,6 @@ public class TaskAdapter extends ArrayAdapter<Task> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Task task = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_listview, parent, false);
         }
@@ -33,12 +32,13 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         taskName.setText(task.task_name);
         dueDate.setText(task.duedate);
 
-        if (task.priority == 0) {
-            taskPriority.setColorFilter(Color.rgb(255,68,68));
-        } else if (task.priority == 1) {
-            taskPriority.setColorFilter(ContextCompat.getColor(getContext(), R.color.colorAccent));
-        } else {
-            taskPriority.setColorFilter(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        switch(task.priority) {
+            case 0:
+                taskPriority.setColorFilter(Color.rgb(255,68,68)); break;
+            case 1:
+                taskPriority.setColorFilter(ContextCompat.getColor(getContext(), R.color.colorAccent)); break;
+            default:
+                taskPriority.setColorFilter(ContextCompat.getColor(getContext(), R.color.colorPrimary));
         }
 
         return convertView;

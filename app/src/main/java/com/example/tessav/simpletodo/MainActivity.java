@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             editTaskName(pos, task);
             editTaskPriority(pos, priority);
             editTaskDueDate(pos, duedate);
-            //Toast.makeText(this, "Updated task: " + task, Toast.LENGTH_SHORT).show();
         }
     }
 

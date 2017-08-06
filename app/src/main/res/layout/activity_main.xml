@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="No Traffic Here"
             android:textAlignment="center"
-            android:textSize="25sp" />
+            android:textSize="23sp" />
 
         <TextView
             android:id="@+id/emptyviewlabel"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:text="Add a task to get started!"
             android:textAlignment="center"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 

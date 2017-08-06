@@ -32,15 +32,17 @@ public class EditItemActivity extends AppCompatActivity implements OnClickListen
         getSupportActionBar().setTitle("Edit Task");
 
         pos = getIntent().getIntExtra("pos", 0);
-        int priority = getIntent().getIntExtra("priority", 2);
+        int priority = getIntent().getIntExtra("priority", 1);
         String task = getIntent().getStringExtra("task_name");
         String duedate = getIntent().getStringExtra("duedate");
-
-        int priority_id = R.id.low;
-        if (priority == 0) {
-            priority_id = R.id.high;
-        } else if (priority == 1) {
-            priority_id = R.id.medium;
+        int priority_id;
+        switch(priority) {
+            case 2:
+                priority_id = R.id.low; break;
+            case 0:
+                priority_id = R.id.high; break;
+            default:
+                priority_id = R.id.medium;
         }
         RadioButton pButton = (RadioButton) findViewById(priority_id);
         EditText editItem = (EditText) findViewById(R.id.editItem);
@@ -84,7 +86,6 @@ public class EditItemActivity extends AppCompatActivity implements OnClickListen
                 EditText editItem = (EditText) findViewById(R.id.editItem);
                 RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
                 int index = radioGroup.indexOfChild(findViewById(radioGroup.getCheckedRadioButtonId()));
-                System.out.println(index);
                 String itemText = editItem.getText().toString();
                 String dueDate = dateText.getText().toString();
                 Intent data = new Intent();

@@ -43,7 +43,7 @@ As part of your pre-work submission, please reflect on the app and answer the fo
 
 ## Notes
 
-I spent quite a lot of time on SQLite integration, datepicker and layout control, and the implementation might be naive as I'm not that aware of Android's best practices.
+I spent quite a lot of time on SQLite integration, datepicker and layout control.
 
 ## License
 

@@ -18,4 +18,7 @@ public class Task extends BaseModel {
 
     @Column(defaultValue = "1")
     int priority;
+
+    @Column
+    String duedate;
 }

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setupListViewListener();
     }
 
+
     private void setupListViewListener() {
         // edit task or show more details
         lvItems.setOnItemClickListener(
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         openEdit.putExtra("pos", pos);
                         openEdit.putExtra("task_name", items.get(pos).task_name);
                         openEdit.putExtra("priority", items.get(pos).priority);
+                        openEdit.putExtra("duedate", items.get(pos).duedate);
                         startActivityForResult(openEdit, REQUEST_CODE);
                     }
                 }
@@ -74,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
             String task = data.getExtras().getString("task_name");
             int priority = data.getIntExtra("priority", 2);
             int pos = data.getExtras().getInt("pos", 0);
+            String duedate = data.getExtras().getString("duedate", "");
             editTaskName(pos, task);
             editTaskPriority(pos, priority);
+            editTaskDueDate(pos, duedate);
             //Toast.makeText(this, "Updated task: " + task, Toast.LENGTH_SHORT).show();
         }
     }
@@ -89,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         Task newTask = new Task();
         newTask.task_name = item_text;
         newTask.priority = 1;
+        newTask.duedate = "";
         newTask.save();
         items.add(newTask);
         itemsAdapter.notifyDataSetChanged();
@@ -111,6 +116,13 @@ public class MainActivity extends AppCompatActivity {
     private void editTaskPriority(int pos, int priority) {
         Task task = items.get(pos);
         task.priority = priority;
+        task.save();
+        itemsAdapter.notifyDataSetChanged();
+    }
+
+    private void editTaskDueDate(int pos, String duedate) {
+        Task task = items.get(pos);
+        task.duedate = duedate;
         task.save();
         itemsAdapter.notifyDataSetChanged();
     }

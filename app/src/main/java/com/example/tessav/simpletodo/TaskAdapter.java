@@ -28,8 +28,10 @@ public class TaskAdapter extends ArrayAdapter<Task> {
 
         TextView taskName = (TextView) convertView.findViewById(R.id.taskName);
         ImageButton taskPriority = (ImageButton) convertView.findViewById(R.id.taskPriority);
+        TextView dueDate = (TextView) convertView.findViewById(R.id.dueDate);
 
         taskName.setText(task.task_name);
+        dueDate.setText(task.duedate);
 
         if (task.priority == 0) {
             taskPriority.setColorFilter(Color.rgb(255,68,68));

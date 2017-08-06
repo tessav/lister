@@ -9,7 +9,7 @@ import com.raizlabs.android.dbflow.sql.migration.AlterTableMigration;
 public class ListerDatabase {
     public static final String NAME = "ListerDataBase";
 
-    public static final int VERSION = 2;
+    public static final int VERSION = 3;
 
     @Migration(version = 2, database = ListerDatabase.class)
     public static class Migration2 extends AlterTableMigration<Task> {
@@ -21,6 +21,18 @@ public class ListerDatabase {
         @Override
         public void onPreMigrate() {
             addColumn(SQLiteType.INTEGER, "priority");
+        }
+    }
+    @Migration(version = 3, database = ListerDatabase.class)
+    public static class Migration3 extends AlterTableMigration<Task> {
+
+        public Migration3(Class<Task> table) {
+            super(table);
+        }
+
+        @Override
+        public void onPreMigrate() {
+            addColumn(SQLiteType.TEXT, "duedate");
         }
     }
 }

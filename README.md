@@ -4,7 +4,7 @@
 
 Submitted by: **Tessa**
 
-Time spent: **6** hours spent in total
+Time spent: **9** hours spent in total
 
 ## User Stories
 
@@ -18,7 +18,7 @@ The following **optional** features are implemented:
 
 * [X] Persist the todo items [into SQLite](http://guides.codepath.com/android/Persisting-Data-to-the-Device#sqlite) instead of a text file
 * [X] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
-* [ ] Add support for completion due dates for todo items (and display within listview item)
+* [X] Add support for completion due dates for todo items (and display within listview item)
 * [ ] Use a [DialogFragment](http://guides.codepath.com/android/Using-DialogFragment) instead of new Activity for editing items
 * [X] Add support for selecting the priority of each todo item (and display in listview item)
 * [X] Tweak the style improving the UI / UX, play with colors, images or backgrounds
@@ -29,10 +29,21 @@ Here's a walkthrough of implemented user stories:<br /><br />
 <img src='http://i.imgur.com/mXcDOaK.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /><br /><br />
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+## Project Analysis
+
+As part of your pre-work submission, please reflect on the app and answer the following questions below:
+
+**Question 1:** "What are your reactions to the Android app development platform so far? Compare and contrast Android's approach to layouts and user interfaces in past platforms you've used."
+
+**Answer:** Android development is pretty similar to iOS development (which I have a little experience in) in terms of development flow and project structure. I like the storyboard approach that xCode has, which allows for quicker stitching of logic flow than Android. However, I also enjoyed working with Android's clear and simple declarative layout (XML).  
+
+**Question 2:** "Take a moment to reflect on the `ArrayAdapter` used in your pre-work. How would you describe an adapter in this context and what is its function in Android? Why do you think the adapter is important? Explain the purpose of the `convertView` in the `getView` method of the `ArrayAdapter`."
+
+**Answer:** The ArrayAdapter takes a list of tasks and instantiates rows of tasks enough to fill the height of the list rendered by a ListView, subsequently instantiating more rows when user scrolls and reusing rows that are already kept in memory. The adapter is important as it controls the data and logic for creating views out of the data. convertView serves the purpose of reusing views.       
 
 ## Notes
 
-SQLite integration was the more challenging portion. 
+I spent quite a lot of time on SQLite integration, datepicker and layout control, and the implementation might be naive as I'm not that aware of Android's best practices.
 
 ## License
 

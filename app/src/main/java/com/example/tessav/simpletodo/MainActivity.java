@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lvItems = (ListView) findViewById(R.id.lvItems);
+        lvItems.setEmptyView(findViewById(R.id.emptyview));
         items = new ArrayList<Task>(getTasks());
         itemsAdapter = new TaskAdapter(this, items);
-        ListView listView = (ListView) findViewById(R.id.lvItems);
-        listView.setAdapter(itemsAdapter);
+        lvItems.setAdapter(itemsAdapter);
         setupListViewListener();
     }
 

@@ -59,4 +59,30 @@
         android:dividerHeight="2dp"
         />
 
+    <LinearLayout
+        android:id="@+id/emptyview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="180dp">
+
+        <TextView
+            android:id="@+id/emptyviewtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Traffic Here"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/emptyviewlabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add a task to get started!"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
 </RelativeLayout>
